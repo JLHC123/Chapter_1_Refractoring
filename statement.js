@@ -4,7 +4,6 @@ let invoice = require("./invoice.json")
 
 function statement(invoice, plays) {
     let totalAmount = 0;
-    let volumeCredits = 0;
     let result = `Statement for ${invoice.customer}\n`;
     
     for (let perf of invoice.performances) {
@@ -14,7 +13,7 @@ function statement(invoice, plays) {
       } seats)\n`;
       totalAmount += amountFor(perf);
     }
-
+    let volumeCredits = 0;
     for (let perf of invoice.performances) {
       volumeCredits += volumeCreditsFor(perf);      
     }
